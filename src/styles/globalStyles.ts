@@ -6,6 +6,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: none;
+    
   }
   body {
     background-color: #F7F8F9;
