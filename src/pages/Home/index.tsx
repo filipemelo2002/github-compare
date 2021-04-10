@@ -1,9 +1,14 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Container } from './styles';
+import NavBar from '../../components/NavBar';
 
 const Home: React.FC = () => {
-  return <h1>Git-Hub compare</h1>;
+  return (
+    <Container>
+      <NavBar />
+    </Container>
+  );
 };
 
 export default Home;
