@@ -14,19 +14,38 @@ export default createGlobalStyle`
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
   }
 
   ul {
     list-style: none;
     margin: 0;
   }
+  h4, p {
+    margin: 0;
+  }
   #root {
     position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+  ::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+::-webkit-scrollbar-thumb {
+  background: #6B6C7E;
+}
+::-webkit-scrollbar-thumb:hover {
+  width: 3px;
+}
 
   --secondary: #6B6C7E;
   --primary: #0B5FFF;

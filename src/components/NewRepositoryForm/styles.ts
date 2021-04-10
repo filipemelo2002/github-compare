@@ -51,7 +51,7 @@ export const Content = styled.form`
     flex-direction: column;
 
     label {
-      font-size: 14px;
+      
       color: var(--dark);
       font-weight: 400;
       span {
