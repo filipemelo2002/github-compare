@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@clayui/card": "^3.25.1",
     "@clayui/css": "^3.25.3",
     "@clayui/drop-down": "^3.25.1",
     "@clayui/form": "^3.14.4",
+    "@clayui/label": "^3.4.1",
     "@clayui/management-toolbar": "^3.3.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
