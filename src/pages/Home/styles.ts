@@ -5,4 +5,14 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   position: relative;
+  height: 100vh;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  height: 100%;
+  margin-top: 1px;
+  height: 100%;
+  padding: 30px 64px;
+  overflow-y: auto;
 `;
