@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 419px;
+  max-width: 419px;
 `;
 
 export const Button = styled.button`
