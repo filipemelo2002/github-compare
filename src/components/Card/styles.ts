@@ -15,6 +15,7 @@ export const CardHeader = styled.div`
     margin-left: auto;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     button {
       width: 32px;
       height: 32px;
