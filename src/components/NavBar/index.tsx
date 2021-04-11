@@ -9,7 +9,7 @@ import SearchBar from '../SearchBar';
 import FilterDropDown from '../FilterDropDown';
 import StarFilter from '../StarFilter';
 import NewRepositoryForm from '../NewRepositoryForm';
-import ListType from '../ListType';
+import ListTypeToggleButton from '../ListTypeToggleButton';
 
 const NavBar: React.FC = () => {
   return (
@@ -32,7 +32,7 @@ const NavBar: React.FC = () => {
           </Button>
         </li>
         <li>
-          <ListType />
+          <ListTypeToggleButton />
         </li>
         <li>
           <NewRepositoryForm />

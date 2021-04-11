@@ -9,11 +9,19 @@ const ListType: React.FC = () => {
   return (
     <>
       {listType === 'grid' ? (
-        <Button type="button" onClick={() => setListType('row')}>
+        <Button
+          type="button"
+          onClick={() => setListType('row')}
+          data-testid="btn-grid"
+        >
           <BsFillGridFill size={20} />
         </Button>
       ) : (
-        <Button type="button" onClick={() => setListType('grid')}>
+        <Button
+          type="button"
+          onClick={() => setListType('grid')}
+          data-testid="btn-row"
+        >
           <FaThList size={20} />
         </Button>
       )}
