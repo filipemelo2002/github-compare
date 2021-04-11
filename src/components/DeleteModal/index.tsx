@@ -33,7 +33,6 @@ const DeleteModal: React.FC = () => {
                 <ClayButton
                   className="btn btn-warning"
                   onClick={() => {
-                    console.log('DELETED BUTTON CLICKED');
                     onClose();
                   }}
                 >
@@ -44,7 +43,11 @@ const DeleteModal: React.FC = () => {
           />
         </ClayModal>
       )}
-      <Button type="button" onClick={() => setVisible(true)}>
+      <Button
+        type="button"
+        data-testid="trash-btn"
+        onClick={() => setVisible(true)}
+      >
         <FiTrash2 size={20} color="#6B6C7E" />
       </Button>
     </>
