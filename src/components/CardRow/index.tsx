@@ -2,11 +2,33 @@ import React from 'react';
 
 import { CardHeader, CardBody } from './styles';
 import ClayCard from '@clayui/card';
-import { MdStarBorder /*, MdStar */ } from 'react-icons/md';
+import { MdStarBorder, MdStar } from 'react-icons/md';
 import logo from '../../assets/logo.png';
 import ClayLabel from '@clayui/label';
 import DeleteModal from '../DeleteModal';
-const Card: React.FC = () => {
+
+interface Props {
+  name: string;
+  stars: number;
+  forks: number;
+  openIssues: number;
+  age: string;
+  lastCommit: string;
+  license: string;
+  techs: Array<string>;
+  starred: boolean;
+}
+const Card: React.FC<Props> = ({
+  name,
+  stars,
+  forks,
+  openIssues,
+  age,
+  lastCommit,
+  license,
+  techs,
+  starred,
+}) => {
   return (
     <div className="fluid">
       <ClayCard className="max-width">
@@ -17,7 +39,11 @@ const Card: React.FC = () => {
           </section>
           <section id="btn-section">
             <button type="button" onClick={() => console.log('start clicked')}>
-              <MdStarBorder size={23} color="#6B6C7E" />
+              {starred ? (
+                <MdStar size={23} color="#6B6C7E" />
+              ) : (
+                <MdStarBorder size={23} color="#6B6C7E" />
+              )}
             </button>
             <DeleteModal />
           </section>
@@ -26,38 +52,42 @@ const Card: React.FC = () => {
           <ul>
             <li>
               <p>
-                Stars <span>150</span>
+                Stars <span>{stars}</span>
               </p>
             </li>
 
             <li>
               <p>
-                Forks <span>442</span>
+                Forks <span>{forks}</span>
               </p>
             </li>
 
             <li>
               <p>
-                Open Issues <span>0</span>
+                Open Issues <span>{openIssues}</span>
               </p>
             </li>
             <li>
               <p>
-                Age <span>11 years ago</span>
+                Age <span>{age}</span>
               </p>
             </li>
             <li>
               <p>
-                Last commit <span>7 hours ago</span>
+                Last commit <span>{lastCommit}</span>
               </p>
             </li>
             <li>
               <p>
-                License <span>N/A</span>
+                License <span>{license}</span>
               </p>
             </li>
             <li>
-              <ClayLabel displayType="warning">JAVA</ClayLabel>
+              {techs.map((t, index) => (
+                <ClayLabel displayType="warning" key={String(index)}>
+                  {t}
+                </ClayLabel>
+              ))}
             </li>
           </ul>
         </CardBody>
