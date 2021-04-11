@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Card from '../../components/Card';
+import CardRow from '../../components/CardRow';
 
-describe('Card Component', () => {
-  it('should test if Card renders', async function () {
+describe('CardRow Component', () => {
+  it('should test if CardRow renders', async function () {
     const { findByText } = render(
-      <Card
+      <CardRow
         age="1 year ago"
         forks={24}
         lastCommit="7 hours ago"
