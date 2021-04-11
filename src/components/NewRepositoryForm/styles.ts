@@ -38,9 +38,7 @@ export const Content = styled.form`
   top: 40px;
   right: 0px;
   z-index: 9999;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.12);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.12);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 5px -1px rgb(0 0 0 / 30%);
   animation-name: FadeIn;
   animation-duration: 300ms;
 
