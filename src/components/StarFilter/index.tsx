@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button } from './styles';
+import { Button } from '../commons/GlobalComponents';
 import { MdStar, MdStarBorder } from 'react-icons/md';
 
 const StarFilter: React.FC = () => {
