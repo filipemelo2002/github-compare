@@ -3,9 +3,10 @@ import React from 'react';
 import { CardHeader, CardBody } from './styles';
 import ClayCard from '@clayui/card';
 import { MdStarBorder /*, MdStar */ } from 'react-icons/md';
-import { FiTrash2 } from 'react-icons/fi';
 import logo from '../../assets/logo.png';
 import ClayLabel from '@clayui/label';
+import DeleteModal from '../DeleteModal';
+
 const Card: React.FC = () => {
   return (
     <div className="col-md-3">
@@ -19,9 +20,7 @@ const Card: React.FC = () => {
             <button type="button" onClick={() => console.log('start clicked')}>
               <MdStarBorder size={23} color="#6B6C7E" />
             </button>
-            <button type="button" onClick={() => console.log('Trash clicked')}>
-              <FiTrash2 size={20} color="#6B6C7E" />
-            </button>
+            <DeleteModal />
           </section>
         </CardHeader>
         <CardBody>
