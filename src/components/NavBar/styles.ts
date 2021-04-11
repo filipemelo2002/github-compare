@@ -21,7 +21,6 @@ export const Container = styled.div`
   #brand {
     color: var(--secondary);
     font-weight: 500;
-    
   }
 
   #menu-button {

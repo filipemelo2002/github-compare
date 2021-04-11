@@ -7,7 +7,7 @@ export const Container = styled.section`
     border-radius: 4px;
     padding: 8px 12px;
     color: var(--secondary);
-    
+
     font-weight: 500;
     margin-bottom: 2px;
     transition: 200ms all ease;
