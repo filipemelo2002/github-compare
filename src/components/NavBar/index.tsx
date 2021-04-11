@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { Container, Button } from './styles';
+import { Container } from './styles';
+import { Button } from '../commons/GlobalComponents';
 
 import { FaGithub, FaAdjust } from 'react-icons/fa';
-import { BsFillGridFill } from 'react-icons/bs';
 
 import SearchBar from '../SearchBar';
 import FilterDropDown from '../FilterDropDown';
 import StarFilter from '../StarFilter';
 import NewRepositoryForm from '../NewRepositoryForm';
+import ListType from '../ListType';
 
 const NavBar: React.FC = () => {
   return (
@@ -31,9 +32,7 @@ const NavBar: React.FC = () => {
           </Button>
         </li>
         <li>
-          <Button type="button">
-            <BsFillGridFill size={20} />
-          </Button>
+          <ListType />
         </li>
         <li>
           <NewRepositoryForm />
