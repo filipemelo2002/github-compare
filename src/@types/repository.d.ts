@@ -12,5 +12,5 @@ interface IRepository {
 }
 
 interface IRepositoryList {
-  iterms: IRepository[];
+  items: IRepository[];
 }
