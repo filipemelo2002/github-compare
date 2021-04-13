@@ -152,20 +152,19 @@ const reducer = (state = initialState(), action: Action): IRepositoryState => {
     }
     case `${TEMPLATE_NAME}_TOGGLE_FAVORITE_REPOSITORY`: {
       const id = action.payload as number;
-      const [newFavouriteRepository] = state.data.filter(
+      const [newFavouriteRepository] = state.filter.data.filter(
         repo => repo.id === id,
       );
       newFavouriteRepository.starred = !newFavouriteRepository.starred;
-      const newData = state.data.map(repo =>
+      const newData = state.filter.data.map(repo =>
         repo.id === id ? newFavouriteRepository : repo,
       );
-      const newFilterData = applyFilter(newData, state.filter.sortBy);
+
       return {
         ...state,
-        data: newData,
         filter: {
           ...state.filter,
-          data: newFilterData,
+          data: newData,
         },
       };
     }
