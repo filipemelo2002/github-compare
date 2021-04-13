@@ -12,6 +12,7 @@ const RepositoryList: React.FC = () => {
     <Container className="row">
       {repository.map(repo => (
         <Card
+          id={repo.id}
           key={repo.id}
           name={repo.full_name}
           stars={repo.stargazers_count}
