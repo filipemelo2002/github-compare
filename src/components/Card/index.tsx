@@ -33,13 +33,16 @@ const Card: React.FC<Props> = ({
   starred,
 }) => {
   const dispatch = useDispatch();
+  function truncate(source: string, size: number): string {
+    return source.length > size ? source.slice(0, size - 1) + '…' : source;
+  }
   return (
     <div className="col-md-3">
       <ClayCard>
         <CardHeader>
           <section>
             <img src={logo} width={40} height={40} />
-            <h4>{name}</h4>
+            <h4>{truncate(name, 30)}</h4>
           </section>
           <section id="float-left">
             <button
