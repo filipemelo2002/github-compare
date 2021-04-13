@@ -15,8 +15,8 @@ interface Props {
   age: string;
   lastCommit: string;
   license: string;
-  techs: Array<string>;
   starred: boolean;
+  language: string;
 }
 const Card: React.FC<Props> = ({
   name,
@@ -26,7 +26,7 @@ const Card: React.FC<Props> = ({
   age,
   lastCommit,
   license,
-  techs,
+  language,
   starred,
 }) => {
   return (
@@ -83,11 +83,7 @@ const Card: React.FC<Props> = ({
               </p>
             </li>
             <li>
-              {techs.map((t, index) => (
-                <ClayLabel displayType="warning" key={String(index)}>
-                  {t}
-                </ClayLabel>
-              ))}
+              <ClayLabel displayType="warning">{language}</ClayLabel>
             </li>
           </ul>
         </CardBody>

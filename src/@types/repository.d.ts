@@ -2,6 +2,7 @@ interface ILicense {
   name: string;
 }
 interface IRepository {
+  id: string;
   full_name: string;
   stargazers_count: number;
   forks: number;
@@ -10,6 +11,7 @@ interface IRepository {
   pushed_at: string;
   license: ILicense | null;
   starred?: boolean;
+  language: string;
 }
 
 interface IRepositoryList {

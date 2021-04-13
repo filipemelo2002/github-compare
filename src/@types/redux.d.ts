@@ -6,6 +6,7 @@ interface IRepositoryState {
     name: string;
     data: IRepository[];
     starred: boolean;
+    sortBy: Sort;
   };
 }
 
