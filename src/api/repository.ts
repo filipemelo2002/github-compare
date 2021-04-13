@@ -7,7 +7,9 @@ export const getRepository = async (term: string): Promise<IRepository> => {
 
 export const getAllUserRepositories = async (
   user: string,
-): Promise<IRepositoryList> => {
-  const response = await Api.get(`search/repositories?q=${user}`);
-  return response.data;
+): Promise<IRepository[]> => {
+  const response = await Api.get<IRepositoryList>(
+    `search/repositories?q=${user}`,
+  );
+  return response.data.items;
 };

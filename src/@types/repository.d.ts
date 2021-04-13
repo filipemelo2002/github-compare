@@ -9,6 +9,7 @@ interface IRepository {
   created_at: string;
   pushed_at: string;
   license: ILicense | null;
+  starred?: boolean;
 }
 
 interface IRepositoryList {
