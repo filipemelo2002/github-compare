@@ -53,6 +53,18 @@ const applyFilter = (arr: IRepository[], filter: Sort) => {
   }
   return arr;
 };
+
+const applySearch = (term: string, state: IRepositoryState) => {
+  const data = applyFilter(state.data, state.filter.sortBy);
+  if (term) {
+    const searchedTerm = data.filter(repository =>
+      repository.full_name.includes(term),
+    );
+    return searchedTerm;
+  }
+  return data;
+};
+
 const reducer = (state = initialState(), action: Action): IRepositoryState => {
   switch (action.type) {
     case `${TEMPLATE_NAME}_PENDING`: {
@@ -101,8 +113,7 @@ const reducer = (state = initialState(), action: Action): IRepositoryState => {
     }
     case `${TEMPLATE_NAME}_SEARCH`: {
       const term = action.payload as string;
-      const data = state.filter.data.filter(d => d.full_name.includes(term));
-      const newData = applyFilter(data, state.filter.sortBy);
+      const newData = applySearch(term, state);
       return {
         ...state,
         filter: {
