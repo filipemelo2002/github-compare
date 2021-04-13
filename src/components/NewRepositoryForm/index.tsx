@@ -6,6 +6,7 @@ import { FiPlus } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import ClayLoadingIndicator from '@clayui/loading-indicator';
 import * as Actions from '../../redux/action/repository';
+import { AiFillInfoCircle } from 'react-icons/ai';
 
 const NewRepositoryForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,9 +21,11 @@ const NewRepositoryForm: React.FC = () => {
     }
     if (term.split('/').length > 1) {
       dispatch(Actions.getRepository(term));
+      setTerm('');
       return true;
     }
     dispatch(Actions.getAllUserRepositories(term));
+    setTerm('');
     return true;
   };
   return (
@@ -44,7 +47,12 @@ const NewRepositoryForm: React.FC = () => {
               value={term}
               onChange={e => setTerm(e.target.value)}
             />
-            {error && <p className="error">This is an API-feedback-error</p>}
+            {error && (
+              <p id="errorLabel">
+                <AiFillInfoCircle size={20} />
+                <span>This is an API-feedback-error</span>
+              </p>
+            )}
           </ClayForm.Group>
           <hr />
           <footer>
