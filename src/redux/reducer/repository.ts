@@ -124,7 +124,7 @@ const reducer = (state = initialState(), action: Action): IRepositoryState => {
     case `${TEMPLATE_NAME}_SORT`: {
       const orderBy = action.payload as Sort;
       const sortFunc = sort[orderBy];
-      const newData = sortFunc(state.filter.data);
+      const newData = sortFunc([...state.filter.data]);
       return {
         ...state,
         filter: {
