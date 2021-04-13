@@ -70,3 +70,10 @@ export const sort = (sortBy: Sort): FilterActionSort => {
     payload: sortBy,
   };
 };
+
+export const toggleFavortiteRepository = (id: string): SearchAction => {
+  return {
+    type: `${TEMPLATE_NAME}_TOGGLE_FAVORITE_REPOSITORY`,
+    payload: id,
+  };
+};
