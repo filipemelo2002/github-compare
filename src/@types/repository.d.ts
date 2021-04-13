@@ -2,7 +2,7 @@ interface ILicense {
   name: string;
 }
 interface IRepository {
-  id: string;
+  id: number;
   full_name: string;
   stargazers_count: number;
   forks: number;
