@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Button } from '../commons/GlobalComponents';
 import { MdStar, MdStarBorder } from 'react-icons/md';
+import { useSelector, useDispatch } from 'react-redux';
+import * as Actions from '../../redux/action/repository';
 
 const StarFilter: React.FC = () => {
-  const [active, setActive] = useState(false);
+  const dispatch = useDispatch();
+  const filter = useSelector((state: State) => state.repository.filter);
   return (
-    <Button type="button" onClick={() => setActive(!active)}>
-      {active ? <MdStarBorder size={25} /> : <MdStar size={25} />}
+    <Button
+      type="button"
+      onClick={() => dispatch(Actions.filterByStar(!filter.starred))}
+    >
+      {filter.starred ? <MdStar size={25} /> : <MdStarBorder size={25} />}
     </Button>
   );
 };
