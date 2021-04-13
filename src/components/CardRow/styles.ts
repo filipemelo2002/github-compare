@@ -14,6 +14,8 @@ export const CardHeader = styled.div`
   section {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    max-width: 90%;
   }
   #btn-section {
     margin-left: auto;
@@ -34,14 +36,16 @@ export const CardHeader = styled.div`
 `;
 
 export const CardBody = styled.div`
-  padding: 12px 16px;
+  padding: 12px 30px;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   ul {
     display: flex;
     flex-wrap: wrap;
-    max-width: 778px;
+    max-width: 90%;
     li {
-      margin-left: 30px;
       p {
         font-weight: 500;
         color: var(--secondary);
@@ -49,6 +53,9 @@ export const CardBody = styled.div`
           font-weight: 400;
         }
       }
+    }
+    li + li {
+      margin-left: 30px;
     }
   }
 `;
