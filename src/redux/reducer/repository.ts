@@ -28,7 +28,10 @@ interface SearchAction {
   type: string;
   payload: string;
 }
-
+interface DeleteAction {
+  type: string;
+  payload: number;
+}
 interface FilterStarAction {
   type: string;
   payload: boolean;
@@ -39,7 +42,8 @@ type Action =
   | ActionListRepositoriesSuccess
   | FilterActionSort
   | FilterStarAction
-  | SearchAction;
+  | SearchAction
+  | DeleteAction;
 
 const applyFilter = (arr: IRepository[], filter: Sort) => {
   if (filter) {
@@ -136,13 +140,27 @@ const reducer = (state = initialState(), action: Action): IRepositoryState => {
       };
     }
     case `${TEMPLATE_NAME}_TOGGLE_FAVORITE_REPOSITORY`: {
-      const id = action.payload as string;
+      const id = action.payload as number;
       const [newFavouriteRepository] = state.data.filter(
         repo => repo.id === id,
       );
       newFavouriteRepository.starred = !newFavouriteRepository.starred;
       const newData = state.data.map(repo =>
         repo.id === id ? newFavouriteRepository : repo,
+      );
+      const newFilterData = applyFilter(newData, state.filter.sortBy);
+      return {
+        ...state,
+        data: newData,
+        filter: {
+          ...state.filter,
+          data: newFilterData,
+        },
+      };
+    }
+    case `${TEMPLATE_NAME}_REMOVE_REPOSITORY`: {
+      const newData = state.data.filter(
+        repository => repository.id !== (action.payload as number),
       );
       const newFilterData = applyFilter(newData, state.filter.sortBy);
       return {

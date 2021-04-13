@@ -71,7 +71,20 @@ export const sort = (sortBy: Sort): FilterActionSort => {
   };
 };
 
-export const toggleFavortiteRepository = (id: string): SearchAction => {
+interface DeleteAction {
+  type: string;
+  payload: number;
+}
+
+type ToggleStarAction = DeleteAction;
+export const deleteRepository = (id: number): DeleteAction => {
+  return {
+    type: `${TEMPLATE_NAME}_REMOVE_REPOSITORY`,
+    payload: id,
+  };
+};
+
+export const toggleFavortiteRepository = (id: number): ToggleStarAction => {
   return {
     type: `${TEMPLATE_NAME}_TOGGLE_FAVORITE_REPOSITORY`,
     payload: id,
