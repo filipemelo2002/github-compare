@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Container } from './styles';
 import Card from '../Card';
 import CardRow from '../CardRow';
+import EmptyList from '../EmptyList';
 const RepositoryList: React.FC = () => {
   const listType = useSelector((state: State) => state.repository.listType);
   const repository = useSelector(
@@ -53,6 +54,11 @@ const RepositoryList: React.FC = () => {
       </Container>
     );
   };
+
+  if (repository.length === 0) {
+    return <EmptyList />;
+  }
+
   return listType === 'grid' ? renderGridList() : renderRowList();
 };
 
