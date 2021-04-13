@@ -9,7 +9,7 @@ import DeleteModal from '../DeleteModal';
 import { useDispatch } from 'react-redux';
 import * as Actions from '../../redux/action/repository';
 interface Props {
-  id: string;
+  id: number;
   name: string;
   stars: number;
   forks: number;
@@ -55,7 +55,7 @@ const Card: React.FC<Props> = ({
                 <MdStarBorder size={23} color="#6B6C7E" />
               )}
             </button>
-            <DeleteModal />
+            <DeleteModal id={id} />
           </section>
         </CardHeader>
         <CardBody>

@@ -4,8 +4,14 @@ import { Button } from './styles';
 import { FiTrash2, FiAlertTriangle } from 'react-icons/fi';
 import ClayModal, { useModal } from '@clayui/modal';
 import ClayButton from '@clayui/button';
+import { useDispatch } from 'react-redux';
+import * as Actions from '../../redux/action/repository';
+interface Props {
+  id: number;
+}
+const DeleteModal: React.FC<Props> = ({ id }) => {
+  const dispatch = useDispatch();
 
-const DeleteModal: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const { observer, onClose } = useModal({
     onClose: () => setVisible(false),
@@ -33,6 +39,7 @@ const DeleteModal: React.FC = () => {
                 <ClayButton
                   className="btn btn-warning"
                   onClick={() => {
+                    dispatch(Actions.deleteRepository(id));
                     onClose();
                   }}
                 >
