@@ -37,7 +37,7 @@ const Card: React.FC<Props> = ({
             <img src={logo} width={40} height={40} />
             <h4>{name}</h4>
           </section>
-          <section>
+          <section id="float-left">
             <button type="button" onClick={() => console.log('start clicked')}>
               {starred ? (
                 <MdStar size={23} color="#6B6C7E" />
@@ -83,7 +83,9 @@ const Card: React.FC<Props> = ({
               </p>
             </li>
             <li>
-              <ClayLabel displayType="warning">{language}</ClayLabel>
+              {language && (
+                <ClayLabel displayType="warning">{language}</ClayLabel>
+              )}
             </li>
           </ul>
         </CardBody>

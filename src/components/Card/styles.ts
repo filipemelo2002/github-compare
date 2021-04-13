@@ -8,11 +8,13 @@ export const CardHeader = styled.div`
   padding-bottom: 5px;
   padding-right: 5px;
   h4 {
+    font-size: 14px;
     margin-left: 4px;
-    font-weight: 600;
+    font-weight: 500;
+    max-width: 70%;
   }
   section {
-    margin-left: auto;
+    width: 70%;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -27,6 +29,10 @@ export const CardHeader = styled.div`
         background: rgba(39, 40, 51, 0.04);
       }
     }
+  }
+  #float-left {
+    margin-left: auto;
+    width: auto;
   }
 `;
 
