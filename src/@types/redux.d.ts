@@ -8,6 +8,7 @@ interface IRepositoryState {
     starred: boolean;
     sortBy: Sort;
   };
+  listType: ListType;
 }
 
 interface State {
