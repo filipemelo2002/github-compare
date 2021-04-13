@@ -77,3 +77,14 @@ export const toggleFavortiteRepository = (id: string): SearchAction => {
     payload: id,
   };
 };
+
+interface ListTypeAction {
+  type: string;
+  payload: ListType;
+}
+export const listType = (type: ListType): ListTypeAction => {
+  return {
+    type: `${TEMPLATE_NAME}_CHANGE_LIST_TYPE`,
+    payload: type,
+  };
+};

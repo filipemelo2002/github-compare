@@ -18,7 +18,7 @@ interface IRepositoryList {
   items: IRepository[];
 }
 type Sort = 'stars' | 'forks' | 'openIssues' | 'age' | 'lastCommit' | '';
-
+type ListType = 'grid' | 'row';
 interface FilterActionSort {
   type: string;
   payload: Sort;

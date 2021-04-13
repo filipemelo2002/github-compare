@@ -11,6 +11,7 @@ const initialState = (): IRepositoryState => ({
     starred: false,
     sortBy: '',
   },
+  listType: 'grid',
 });
 
 interface ActionGetRepositorySuccess {
@@ -151,6 +152,12 @@ const reducer = (state = initialState(), action: Action): IRepositoryState => {
           ...state.filter,
           data: newFilterData,
         },
+      };
+    }
+    case `${TEMPLATE_NAME}_CHANGE_LIST_TYPE`: {
+      return {
+        ...state,
+        listType: action.payload as ListType,
       };
     }
     case 'RESET': {
