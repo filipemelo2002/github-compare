@@ -63,3 +63,10 @@ export const filterByStar = (shouldFilterByStar: boolean): FilterStarAction => {
     payload: shouldFilterByStar,
   };
 };
+
+export const sort = (sortBy: Sort): FilterActionSort => {
+  return {
+    type: `${TEMPLATE_NAME}_SORT`,
+    payload: sortBy,
+  };
+};

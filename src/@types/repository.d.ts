@@ -15,3 +15,9 @@ interface IRepository {
 interface IRepositoryList {
   items: IRepository[];
 }
+type Sort = 'stars' | 'forks' | 'openIssues' | 'age' | 'lastCommit';
+
+interface FilterActionSort {
+  type: string;
+  payload: Sort;
+}
