@@ -9,6 +9,8 @@ const mockedAxios = Api as jest.Mocked<typeof axios>;
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
+const TEMPLATE_NAME = 'REPOSITORY';
+
 describe('Repository actions', () => {
   const repository: IRepository = {
     full_name: 'filipemelo2002/filipemelo2002',
@@ -27,9 +29,9 @@ describe('Repository actions', () => {
     });
 
     const expectedActions = [
-      { type: 'REPOSITORY_PENDING' },
+      { type: `${TEMPLATE_NAME}_PENDING` },
       {
-        type: 'REPOSITORY_SUCCESS',
+        type: `${TEMPLATE_NAME}_SUCCESS`,
         payload: repository,
       },
     ];
@@ -50,9 +52,9 @@ describe('Repository actions', () => {
     });
 
     const expectedActions = [
-      { type: 'REPOSITORY_PENDING' },
+      { type: `${TEMPLATE_NAME}_PENDING` },
       {
-        type: 'REPOSITORY_FULFILLED',
+        type: `${TEMPLATE_NAME}_FULFILLED`,
         payload: [repository],
       },
     ];
@@ -61,5 +63,21 @@ describe('Repository actions', () => {
     await store.dispatch(actions.getAllUserRepositories('filipemelo2002'));
 
     expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should search by repository name', () => {
+    const response = actions.search('filipemelo2002');
+    expect(response).toEqual({
+      type: `${TEMPLATE_NAME}_SEARCH`,
+      payload: 'filipemelo2002',
+    });
+  });
+
+  it('should filter by starred', () => {
+    const response = actions.filterByStar(true);
+    expect(response).toEqual({
+      type: `${TEMPLATE_NAME}_FILTER_STARRED`,
+      payload: true,
+    });
   });
 });

@@ -41,3 +41,25 @@ export const getAllUserRepositories = (term: string) => {
     }
   };
 };
+
+interface SearchAction {
+  type: string;
+  payload: string;
+}
+export const search = (term: string): SearchAction => {
+  return {
+    type: `${TEMPLATE_NAME}_SEARCH`,
+    payload: term,
+  };
+};
+
+interface FilterStarAction {
+  type: string;
+  payload: boolean;
+}
+export const filterByStar = (shouldFilterByStar: boolean): FilterStarAction => {
+  return {
+    type: `${TEMPLATE_NAME}_FILTER_STARRED`,
+    payload: shouldFilterByStar,
+  };
+};
