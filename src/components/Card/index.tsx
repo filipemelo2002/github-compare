@@ -6,8 +6,10 @@ import { MdStarBorder, MdStar } from 'react-icons/md';
 import logo from '../../assets/logo.png';
 import ClayLabel from '@clayui/label';
 import DeleteModal from '../DeleteModal';
-
+import { useDispatch } from 'react-redux';
+import * as Actions from '../../redux/action/repository';
 interface Props {
+  id: string;
   name: string;
   stars: number;
   forks: number;
@@ -15,10 +17,11 @@ interface Props {
   age: string;
   lastCommit: string;
   license: string;
-  techs: Array<string>;
   starred: boolean;
+  language: string;
 }
 const Card: React.FC<Props> = ({
+  id,
   name,
   stars,
   forks,
@@ -26,9 +29,10 @@ const Card: React.FC<Props> = ({
   age,
   lastCommit,
   license,
-  techs,
+  language,
   starred,
 }) => {
+  const dispatch = useDispatch();
   return (
     <div className="col-md-3">
       <ClayCard>
@@ -37,8 +41,11 @@ const Card: React.FC<Props> = ({
             <img src={logo} width={40} height={40} />
             <h4>{name}</h4>
           </section>
-          <section>
-            <button type="button" onClick={() => console.log('start clicked')}>
+          <section id="float-left">
+            <button
+              type="button"
+              onClick={() => dispatch(Actions.toggleFavortiteRepository(id))}
+            >
               {starred ? (
                 <MdStar size={23} color="#6B6C7E" />
               ) : (
@@ -83,11 +90,9 @@ const Card: React.FC<Props> = ({
               </p>
             </li>
             <li>
-              {techs.map((t, index) => (
-                <ClayLabel displayType="warning" key={String(index)}>
-                  {t}
-                </ClayLabel>
-              ))}
+              {language && (
+                <ClayLabel displayType="warning">{language}</ClayLabel>
+              )}
             </li>
           </ul>
         </CardBody>

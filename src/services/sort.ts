@@ -28,11 +28,13 @@ const sortLastCommit = (arr: IRepository[]): IRepository[] => {
   });
 };
 
+const empySort = (arr: IRepository[]): IRepository[] => arr;
 const sorts = {
   stars: sortStars,
   forks: sortForks,
   openIssues: sortOpenIssues,
   age: sortAge,
   lastCommit: sortLastCommit,
+  '': empySort,
 };
 export default sorts;

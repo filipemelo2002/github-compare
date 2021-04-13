@@ -15,8 +15,8 @@ interface Props {
   age: string;
   lastCommit: string;
   license: string;
-  techs: Array<string>;
   starred: boolean;
+  language: string;
 }
 const Card: React.FC<Props> = ({
   name,
@@ -26,7 +26,7 @@ const Card: React.FC<Props> = ({
   age,
   lastCommit,
   license,
-  techs,
+  language,
   starred,
 }) => {
   return (
@@ -35,7 +35,7 @@ const Card: React.FC<Props> = ({
         <CardHeader>
           <section>
             <img src={logo} width={40} height={40} />
-            <h4>liferay/liferay-portal</h4>
+            <h4>{name}</h4>
           </section>
           <section id="btn-section">
             <button type="button" onClick={() => console.log('start clicked')}>
@@ -83,11 +83,7 @@ const Card: React.FC<Props> = ({
               </p>
             </li>
             <li>
-              {techs.map((t, index) => (
-                <ClayLabel displayType="warning" key={String(index)}>
-                  {t}
-                </ClayLabel>
-              ))}
+              <ClayLabel displayType="warning">{language}</ClayLabel>
             </li>
           </ul>
         </CardBody>

@@ -35,6 +35,15 @@ export default createGlobalStyle`
       monospace;
   }
 
+  #errorLabel {
+    color: #DA1414;
+    font-weight: 600;
+    margin-top: 7px;
+   span {
+    margin-left: 7px;
+   }
+  }
+
   ::-webkit-scrollbar {
   width: 4px;
 }

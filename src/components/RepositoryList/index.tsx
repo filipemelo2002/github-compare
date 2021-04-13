@@ -1,65 +1,30 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
 import { Container } from './styles';
 import Card from '../Card';
+
 const RepositoryList: React.FC = () => {
+  const repository = useSelector(
+    (state: State) => state.repository.filter.data,
+  );
   return (
     <Container className="row">
-      <Card
-        age="1 year ago"
-        forks={24}
-        lastCommit="7 hours ago"
-        license="N/A"
-        name="liferay/liferay-portal"
-        openIssues={0}
-        starred
-        stars={10}
-        techs={['JAVA', 'JAVASCRIPT']}
-      />
-      <Card
-        age="1 year ago"
-        forks={24}
-        lastCommit="7 hours ago"
-        license="N/A"
-        name="liferay/liferay-portal"
-        openIssues={0}
-        starred
-        stars={10}
-        techs={['JAVA', 'JAVASCRIPT']}
-      />
-      <Card
-        age="1 year ago"
-        forks={24}
-        lastCommit="7 hours ago"
-        license="N/A"
-        name="liferay/liferay-portal"
-        openIssues={0}
-        starred
-        stars={10}
-        techs={['JAVA', 'JAVASCRIPT']}
-      />
-      <Card
-        age="1 year ago"
-        forks={24}
-        lastCommit="7 hours ago"
-        license="N/A"
-        name="liferay/liferay-portal"
-        openIssues={0}
-        starred
-        stars={10}
-        techs={['JAVA', 'JAVASCRIPT']}
-      />
-      <Card
-        age="1 year ago"
-        forks={24}
-        lastCommit="7 hours ago"
-        license="N/A"
-        name="liferay/liferay-portal"
-        openIssues={0}
-        starred
-        stars={10}
-        techs={['JAVA', 'JAVASCRIPT']}
-      />
+      {repository.map(repo => (
+        <Card
+          id={repo.id}
+          key={repo.id}
+          name={repo.full_name}
+          stars={repo.stargazers_count}
+          forks={repo.forks}
+          openIssues={repo.open_issues}
+          age={repo.created_at}
+          lastCommit={repo.pushed_at}
+          license={repo.license?.name || 'N/A'}
+          language={repo.language}
+          starred={repo.starred || false}
+        />
+      ))}
     </Container>
   );
 };
