@@ -94,9 +94,11 @@ const Card: React.FC<Props> = ({
               </p>
             </li>
           </ul>
-          <ClayLabel displayType="warning" className="language">
-            {language}
-          </ClayLabel>
+          {language && (
+            <ClayLabel displayType="warning" className="language">
+              {language}
+            </ClayLabel>
+          )}
         </CardBody>
       </ClayCard>
     </div>
