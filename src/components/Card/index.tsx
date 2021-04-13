@@ -1,5 +1,6 @@
 import React from 'react';
 
+import moment from 'moment';
 import { CardHeader, CardBody } from './styles';
 import ClayCard from '@clayui/card';
 import { MdStarBorder, MdStar } from 'react-icons/md';
@@ -79,12 +80,13 @@ const Card: React.FC<Props> = ({
             </li>
             <li>
               <p>
-                Age <span>{age}</span>
+                Age <span>{moment(new Date(age)).fromNow()}</span>
               </p>
             </li>
             <li>
               <p>
-                Last commit <span>{lastCommit}</span>
+                Last commit
+                <span>{moment(new Date(lastCommit)).fromNow()}</span>
               </p>
             </li>
             <li>
