@@ -9,6 +9,7 @@ const initialState = (): IRepositoryState => ({
     name: '',
     data: [],
     starred: false,
+    sortBy: 'stars',
   },
 });
 
@@ -55,43 +56,84 @@ const reducer = (state = initialState(), action: Action): IRepositoryState => {
       };
     }
     case `${TEMPLATE_NAME}_FULFILLED`: {
+      const data = [...state.data, ...(action.payload as IRepository[])];
+      let newData = [];
+      if (state.filter.sortBy) {
+        const sortFunc = sort[state.filter.sortBy];
+        newData = sortFunc(data);
+      } else {
+        newData = data;
+      }
+
       return {
         ...state,
-        data: action.payload as IRepository[],
+        data: data,
         loading: false,
+        filter: {
+          ...state.filter,
+          data: newData,
+        },
         error: false,
       };
     }
     case `${TEMPLATE_NAME}_SUCCESS`: {
       const repository = action.payload as IRepository;
-      const newData = state.data;
-      newData.unshift(repository);
+      const data = [...state.data];
+      data.unshift(repository);
+      let newData = [];
+      if (state.filter.sortBy) {
+        const sortFunc = sort[state.filter.sortBy];
+        newData = sortFunc(data);
+      } else {
+        newData = data;
+      }
+
       return {
         ...state,
-        data: newData,
+        data: data,
         loading: false,
         error: false,
+        filter: {
+          ...state.filter,
+          data: newData,
+        },
       };
     }
     case `${TEMPLATE_NAME}_SEARCH`: {
       const term = action.payload as string;
-
+      const data = state.filter.data.filter(d => d.full_name.includes(term));
+      let newData = [];
+      if (state.filter.sortBy) {
+        const sortFunc = sort[state.filter.sortBy];
+        newData = sortFunc(data);
+      } else {
+        newData = data;
+      }
       return {
         ...state,
         filter: {
           ...state.filter,
           name: term,
-          data: state.filter.data.filter(d => d.full_name.includes(term)),
+          data: newData,
         },
       };
     }
     case `${TEMPLATE_NAME}_FILTER_STARRED`: {
       const starred = action.payload as boolean;
+      const data = state.filter.data.filter(d => d.starred === starred);
+      let newData = [];
+      if (state.filter.sortBy) {
+        const sortFunc = sort[state.filter.sortBy];
+        newData = sortFunc(data);
+      } else {
+        newData = data;
+      }
+
       return {
         ...state,
         filter: {
           ...state.filter,
-          data: state.filter.data.filter(d => d.starred === starred),
+          data: newData,
           starred,
         },
       };
@@ -105,6 +147,7 @@ const reducer = (state = initialState(), action: Action): IRepositoryState => {
         filter: {
           ...state.filter,
           data: newData,
+          sortBy: payload,
         },
       };
     }

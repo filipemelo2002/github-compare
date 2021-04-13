@@ -1266,6 +1266,13 @@
   dependencies:
     classnames "^2.2.6"
 
+"@clayui/loading-indicator@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@clayui/loading-indicator/-/loading-indicator-3.2.0.tgz#7a5565c5543b345d9e57d8b94b72b7ba83c4667f"
+  integrity sha512-c0R4NEa+5gITbsAgf3IxP6O4TjMzaWCT7rv3N4EFWT23lbChRFE/XCq5utXbQIM1M6b+1lYX2qoqsn9o4+63SA==
+  dependencies:
+    classnames "^2.2.6"
+
 "@clayui/management-toolbar@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@clayui/management-toolbar/-/management-toolbar-3.3.0.tgz#bedf513b56e5b5756e0287149c1cd90f8b8f3043"

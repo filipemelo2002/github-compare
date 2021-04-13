@@ -1,25 +1,50 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 
 import { Button, Container, Content } from './styles';
 import ClayForm, { ClayInput } from '@clayui/form';
 import { FiPlus } from 'react-icons/fi';
+import { useDispatch, useSelector } from 'react-redux';
+import ClayLoadingIndicator from '@clayui/loading-indicator';
+import * as Actions from '../../redux/action/repository';
 
 const NewRepositoryForm: React.FC = () => {
+  const dispatch = useDispatch();
+  const [term, setTerm] = useState('');
   const [openDropdown, setOpenDropdown] = useState(false);
+  const { loading, error } = useSelector((state: State) => state.repository);
 
+  const onSubmitForm = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (term.length === 0) {
+      return false;
+    }
+    if (term.split('/').length > 1) {
+      dispatch(Actions.getRepository(term));
+      return true;
+    }
+    dispatch(Actions.getAllUserRepositories(term));
+    return true;
+  };
   return (
     <Container>
       <Button type="button" onClick={() => setOpenDropdown(!openDropdown)}>
         <FiPlus size={20} />
       </Button>
       {openDropdown && (
-        <Content onSubmit={() => console.log('SUBMITED FORM')}>
+        <Content onSubmit={onSubmitForm}>
           <ClayForm.Group className="input-group">
             <h4>New repository</h4>
             <label htmlFor="repository">
               Repository <span>*</span>
             </label>
-            <ClayInput component="input" id="repository" type="text" />
+            <ClayInput
+              component="input"
+              id="repository"
+              type="text"
+              value={term}
+              onChange={e => setTerm(e.target.value)}
+            />
+            {error && <p className="error">This is an API-feedback-error</p>}
           </ClayForm.Group>
           <hr />
           <footer>
@@ -31,7 +56,7 @@ const NewRepositoryForm: React.FC = () => {
               Cancel
             </button>
             <button className="btn btn-primary" type="submit">
-              Add
+              {loading ? <ClayLoadingIndicator color="#fff" small /> : 'Add'}
             </button>
           </footer>
         </Content>
