@@ -8,8 +8,9 @@ export const CardHeader = styled.div`
   padding-bottom: 5px;
   padding-right: 5px;
   h4 {
+    font-size: 14px;
     margin-left: 4px;
-    font-weight: 600;
+    font-weight: 500;
   }
   section {
     display: flex;
