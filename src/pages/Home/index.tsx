@@ -1,9 +1,17 @@
 import React from 'react';
 
-// import { Container } from './styles';
-
+import { Container, Content } from './styles';
+import NavBar from '../../components/NavBar';
+import RepositoryList from '../../components/RepositoryList';
 const Home: React.FC = () => {
-  return <h1>Git-Hub compare</h1>;
+  return (
+    <Container>
+      <NavBar />
+      <Content>
+        <RepositoryList />
+      </Content>
+    </Container>
+  );
 };
 
 export default Home;

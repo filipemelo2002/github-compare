@@ -1,12 +1,31 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [🐙Github Compare](https://github.com/filipemelo2002/github-compare)
+Github Compare is a web application that allows users to show comparisons of repositories selected by them on Github.
 
-## Available Scripts
+This App uses github [**GitHub API V3**](https://docs.github.com/en/rest) 
 
-In the project directory, you can run:
+## 📦 Packages
+### Configuration
+* [ESlint](https://eslint.org/)
+* [Prettier](https://prettier.io/)
+* [Typescript](https://www.typescriptlang.org/)
+### CSS
+*  [ClayUI](https://clayui.com/)
+* [styled-components](https://styled-components.com/) 
+## Tests
+* [Jest](https://jestjs.io/)
+* [Testing Library](https://testing-library.com/)
 
-### `yarn start`
+## ⚙️Getting started
+
+
+Clone this project and install the dependencies:
+```bash
+git clone https://github.com/filipemelo2002/github-compare.git
+cd github-compare
+npm install # or yarn install
+```
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -29,18 +48,55 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## 📸Screenshots
+![Screenshot github-compare](https://i.imgur.com/N8J3cdz.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Screenshot github-compare](https://i.imgur.com/RKhMNqE.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Screenshot github-compare](https://i.imgur.com/xE6loky.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Screenshot github-compare](https://i.imgur.com/gBXkS8p.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Screenshot github-compare](https://i.imgur.com/Q3AjysV.png)
 
-## Learn More
+## 🧑‍🏭Architecture
+Below, you can see how the files are organized:
+```bash
+github-compare/
+┣ public/
+┃ ┣ favicon.ico
+┃ ┣ index.html
+┃ ┣ logo192.png
+┃ ┗ logo512.png
+┣ src/
+┃ ┣ @types/
+┃ ┣ __tests__/
+┃ ┣ api/
+┃ ┣ assets/
+┃ ┣ components/
+┃ ┣ pages/
+┃ ┣ redux/
+┃ ┣ services/
+┃ ┣ styles/
+┃ ┣ App.tsx
+┃ ┣ index.tsx
+┃ ┗ react-app-env.d.ts
+┣ .eslintrc.json
+┣ .gitignore
+┣ .prettierrc
+┣ README.md
+┣ package.json
+┣ tsconfig.json
+┗ yarn.lock
+```
+### Components
+Are inside components folder and each of them work individually.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Pages
+currently, there's only one page, Home, which is responsible for rendering all components.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Tests
+Are declared inside *\_\_tests\_\_* folder.
+
+## 📃 License
+The MIT License (MIT)
