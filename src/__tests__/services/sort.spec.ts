@@ -1,7 +1,7 @@
 import sort from '../../services/sort';
 
 describe('Sort functions', () => {
-  const repositories = [
+  const repositories: IRepository[] = [
     {
       full_name: 'filipemelo2002/STARS',
       stargazers_count: 79,
@@ -12,6 +12,9 @@ describe('Sort functions', () => {
       license: {
         name: 'MIT',
       },
+      id: 1,
+      language: 'javascript',
+      starred: false,
     },
     {
       full_name: 'filipemelo2002/FORKS',
@@ -23,6 +26,9 @@ describe('Sort functions', () => {
       license: {
         name: 'MIT',
       },
+      id: 2,
+      language: 'javascript',
+      starred: false,
     },
     {
       full_name: 'filipemelo2002/AGE',
@@ -34,6 +40,9 @@ describe('Sort functions', () => {
       license: {
         name: 'MIT',
       },
+      id: 3,
+      language: 'javascript',
+      starred: false,
     },
     {
       full_name: 'filipemelo2002/COMMIT',
@@ -45,6 +54,9 @@ describe('Sort functions', () => {
       license: {
         name: 'MIT',
       },
+      id: 4,
+      language: 'javascript',
+      starred: false,
     },
   ];
 
